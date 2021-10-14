@@ -1,0 +1,60 @@
+run:
+  deadline: 5m
+  issues-exit-code: 1
+  tests: true
+  skip-dirs:
+    - tests
+
+output:
+  format: colored-line-number
+  print-issued-lines: true
+  print-linter-name: true
+
+linters-settings:
+  errcheck:
+    check-type-assertions: false
+    check-blank: false
+
+maligned:
+  suggest-new: true
+
+linters:
+  disable-all: true
+
+  # https://github.com/golangci/golangci-lint#supported-linters
+  enable:
+
+    # Enabled By Default Linters
+    - govet
+    - errcheck
+    - staticcheck
+    - unused
+    - gosimple
+    - structcheck
+    - varcheck
+    - ineffassign
+    - deadcode
+    - typecheck
+
+    # Disabled By Default Linters
+    - bodyclose
+    - stylecheck
+    - unconvert
+    - goconst
+    - asciicheck
+    - gofmt
+    - goimports
+    - depguard
+    - misspell
+    - unparam
+    - dogsled
+    - nakedret
+    - gocritic
+    - gochecknoinits
+    - godox
+    - whitespace
+    - wsl
+    - goprintffuncname
+    - gomodguard
+    - godot
+    - nolintlint
