@@ -23,7 +23,6 @@ COPY ./vendor ./vendor
 RUN go install ./vendor/...
 
 COPY . .
-COPY ./internal ./internal
 
 ARG VER
 

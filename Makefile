@@ -22,7 +22,7 @@ clean:
 
 dev:
 	@docker-compose up -d --build --remove-orphans
-	@docker-compose logs -f up
+	@docker-compose logs -f
 
 down:
 	@docker-compose down
