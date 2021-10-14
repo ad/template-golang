@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+    app:
+        build:
+            context: .
+            dockerfile: ./Dockerfile
+            args:
+                VER: $VER
+        image: github.com/ad/template-golang:dev
+        stop_signal: SIGINT
+        stop_grace_period: 15s
+        ports:
+            - "8080:8080"
