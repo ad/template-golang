@@ -23,6 +23,7 @@ test:
 	@-docker run \
 		--rm -i \
 		-u $$(id -u):$$(id -g) \
+		-e GOCACHE=/tmp/ \
 		-w $(CWD) \
 		-v $(CURDIR):$(CWD) \
 		-v $(GOCACHE):/.cache \
