@@ -6,7 +6,9 @@ services:
             context: .
             dockerfile: ./Dockerfile
             args:
-                VER: $VER
+                VERSION: $VERSION
+                COMMIT_HASH: $COMMIT_HASH
+                BUILD_TIMESTAMP: $BUILD_TIMESTAMP
         image: "${IMG}:${TAG}"
         stop_signal: SIGINT
         stop_grace_period: 15s

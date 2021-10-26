@@ -24,9 +24,11 @@ RUN go install ./vendor/...
 
 COPY . .
 
-ARG VER
+ARG VERSION
+ARG COMMIT_HASH
+ARG BUILD_TIMESTAMP
 
-RUN go build -ldflags="-X main.version=$VER" -o /go/bin/app .
+RUN go build -ldflags="-X main.Version=$VERSION -X main.CommitHash=${COMMIT_HASH} -X main.BuildTimestamp=${BUILD_TIMESTAMP}" -o /go/bin/app .
 
 FROM scratch
 # EXPOSE 8080

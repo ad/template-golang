@@ -12,11 +12,13 @@ import (
 )
 
 var (
-	version = "development"
+	Version        = "development"
+	CommitHash     = "n/a"
+	BuildTimestamp = "n/a"
 )
 
 func main() {
-	fmt.Println("started, version", version)
+	fmt.Printf("started, version %s(%s) build at %s\n", Version, CommitHash, BuildTimestamp)
 
 	gracefulShutdown := make(chan os.Signal, 1)
 	signal.Notify(gracefulShutdown, syscall.SIGINT, syscall.SIGTERM)

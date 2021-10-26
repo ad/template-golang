@@ -1,18 +1,14 @@
+.EXPORT_ALL_VARIABLES:
+DOCKER_SCAN_SUGGEST = false
+SRC_DIRS := . 
+CWD = $(shell pwd)
 IMG = github.com/ad/template-golang
 TAG = latest
-
-SRC_DIRS := . 
-
 GOCACHE ?= $$(pwd)/.go/cache
+VERSION = $(shell git describe --tags --always --abbrev=0 --match='v[0-9]*.[0-9]*.[0-9]*' 2> /dev/null | sed 's/^.//')
+COMMIT_HASH = $(shell git rev-parse --short HEAD)
+BUILD_TIMESTAMP = $(shell date '+%Y-%m-%dT%H:%M:%S')
 
-CWD = $(shell pwd)
-VER = $(shell git describe --tags --always --dirty)
-
-export DOCKER_SCAN_SUGGEST := false
-export IMG := $(IMG)
-export TAG := $(TAG)
-export VER := $(VER)
-export CWD := $(CWD)
 
 lint:
 	@-docker run --rm -t -w $(CWD) -v $(CURDIR):$(CWD) -e GOFLAGS=-mod=vendor \
