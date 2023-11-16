@@ -6,5 +6,6 @@
 [![Open in Visual Studio Code](https://open.vscode.dev/badges/open-in-vscode.svg)](https://open.vscode.dev/ad/template-golang)
 
 1. edit go.mod, change module name `github.com/ad/template-golang`
-2. edit Makefile, change image name: `IMG = github.com/ad/template-golang` and tag: `TAG = latest`
-3. run `make dev`
+2. edit main.go and main_test.go, change module name `github.com/ad/template-golang`
+3. edit Makefile, change image name: `IMG = github.com/ad/template-golang` and tag: `TAG = latest`
+4. run `make dev`
